@@ -34,6 +34,15 @@ class CallCenter:
         # will remove the first call once the method called
         self.calls.pop(0)
         
+    def remove_by_phone(self, number):
+        #number entered must be a type string (str)
+        if type(number) == str:
+            for i in self.calls:
+                if i.phone == number:
+                    self.calls.remove(i)
+        else:
+            print(f"This caller with the number {number} doesn't exist")
+            
     def info(self):
         # loop around and display all the calls name and phone number
         count = 0
@@ -54,7 +63,7 @@ central.add(e)
 #show the call list
 central.info()
 #remove a calls
-central.remove()
+central.remove_by_phone('123-456-7890')
 #show the new call list
 central.info()
     
